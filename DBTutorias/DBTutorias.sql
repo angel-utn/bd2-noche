@@ -1,3 +1,8 @@
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'DBTutorias') BEGIN
+    USE MASTER;
+    DROP DATABASE DBTutorias;
+END;
+
 CREATE DATABASE DBTutorias
 COLLATE Latin1_General_CI_AI;
 
@@ -53,10 +58,10 @@ CREATE TABLE Tutorias (
     Duracion TINYINT NOT NULL,
 	ConfirmaTutor BIT NOT NULL DEFAULT 0,
 	ConfirmaAlumno BIT NOT NULL DEFAULT 0,
-    IDEstado VARCHAR(20) NOT NULL DEFAULT 1,
+    IDEstado TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (IDEstudianteTutor) REFERENCES Estudiantes(IDEstudiante),
     FOREIGN KEY (IDEstudianteAlumno) REFERENCES Estudiantes(IDEstudiante),
-	FOREIGN KEY (IDEstado) REFERENCES EstadosTutorias(IDEstado),
+	FOREIGN KEY (IDEstado) REFERENCES EstadosTutoria(IDEstado),
     FOREIGN KEY (IDMateria) REFERENCES Materias(IDMateria)
 );
 
@@ -69,3 +74,7 @@ CREATE TABLE HistorialCreditos (
     Descripcion VARCHAR(255) NOT NULL,
     FOREIGN KEY (IDEstudiante) REFERENCES Estudiantes(IDEstudiante)
 );
+
+-- Estados de Tutorías
+
+INSERT INTO EstadosTutoria(Nombre) VALUES ('Vigente'), ('En curso'), ('Finalizada')
