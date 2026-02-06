@@ -39,6 +39,11 @@ CREATE TABLE EstudiantesMaterias (
     FOREIGN KEY (IDMateria) REFERENCES Materias(IDMateria)
 );
 
+CREATE TABLE EstadosTutoria(
+	IDEstado TINYINT NOT NULL PRIMARY KEY IDENTITY (1, 1),
+	Nombre VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE Tutorias (
     IDTutoria INT PRIMARY KEY IDENTITY(1,1),
     IDEstudianteTutor INT NOT NULL,
@@ -48,9 +53,10 @@ CREATE TABLE Tutorias (
     Duracion TINYINT NOT NULL,
 	ConfirmaTutor BIT NOT NULL DEFAULT 0,
 	ConfirmaAlumno BIT NOT NULL DEFAULT 0,
-    Estado VARCHAR(20) NOT NULL DEFAULT 'PENDIENTE',
+    IDEstado VARCHAR(20) NOT NULL DEFAULT 1,
     FOREIGN KEY (IDEstudianteTutor) REFERENCES Estudiantes(IDEstudiante),
     FOREIGN KEY (IDEstudianteAlumno) REFERENCES Estudiantes(IDEstudiante),
+	FOREIGN KEY (IDEstado) REFERENCES EstadosTutorias(IDEstado),
     FOREIGN KEY (IDMateria) REFERENCES Materias(IDMateria)
 );
 
