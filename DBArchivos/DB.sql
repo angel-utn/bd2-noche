@@ -1,13 +1,13 @@
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'DBArchivos') BEGIN
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'BDArchivos') BEGIN
     USE MASTER;
-    DROP DATABASE DBArchivos;
+    DROP DATABASE BDArchivos;
 END;
 
-CREATE DATABASE DBArchivos
+CREATE DATABASE BDArchivos
 COLLATE Latin1_General_CI_AI;
 GO
  
-USE DBArchivos;
+USE BDArchivos;
 GO
  
 CREATE TABLE TiposUsuario (
