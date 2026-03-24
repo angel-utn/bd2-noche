@@ -4,21 +4,21 @@ IF EXISTS (SELECT * FROM sys.databases WHERE name = 'DBArchivos') BEGIN
 END;
 
 CREATE DATABASE DBArchivos
-COLLATE Latin1_General_CI_AI;;
+COLLATE Latin1_General_CI_AI;
 GO
  
 USE DBArchivos;
 GO
  
 CREATE TABLE TiposUsuario (
-    IDTipoUsuario   INT             NOT NULL,
+    IDTipoUsuario   INT IDENTITY (1, 1) NOT NULL,
     TipoUsuario     VARCHAR(50)     NOT NULL,
     CONSTRAINT PK_TiposUsuario PRIMARY KEY (IDTipoUsuario)
 );
 GO
  
 CREATE TABLE Usuarios (
-    IDUsuario       INT             NOT NULL,
+    IDUsuario       INT IDENTITY (1, 1)  NOT NULL,
     Nombre          VARCHAR(100)    NOT NULL,
     Apellido        VARCHAR(100)    NOT NULL,
     IDTipoUsuario   INT             NOT NULL,
@@ -30,21 +30,21 @@ CREATE TABLE Usuarios (
 GO
  
 CREATE TABLE TiposArchivos (
-    IDTipoArchivo   INT             NOT NULL,
+    IDTipoArchivo   INT IDENTITY (1, 1)  NOT NULL,
     TipoArchivo     VARCHAR(50)     NOT NULL,
     CONSTRAINT PK_TiposArchivos PRIMARY KEY (IDTipoArchivo)
 );
 GO
  
 CREATE TABLE Permisos (
-    IDPermiso       INT             NOT NULL,
+    IDPermiso       INT IDENTITY (1, 1) NOT NULL,
     Nombre          VARCHAR(100)    NOT NULL,
     CONSTRAINT PK_Permisos PRIMARY KEY (IDPermiso)
 );
 GO
  
 CREATE TABLE Archivos (
-    IDArchivo               INT             NOT NULL,
+    IDArchivo               INT IDENTITY (1, 1) NOT NULL,
     IDUsuarioDueño          INT             NOT NULL,
     Nombre                  VARCHAR(255)    NOT NULL,
     Extension               VARCHAR(20)     NOT NULL,
