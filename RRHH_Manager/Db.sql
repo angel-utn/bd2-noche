@@ -8,7 +8,8 @@ BEGIN
 END
 GO
 
-CREATE DATABASE UTN_RRHH_Manager;
+CREATE DATABASE UTN_RRHH_Manager
+Collate Latin1_General_CI_AI;
 GO
 
 USE UTN_RRHH_Manager;
