@@ -71,7 +71,7 @@ VALUES (1, DATEADD(month, -2, GETDATE()), 'No usa la posición 0 de los vectores
 
 
 INSERT INTO SolicitudesDiasLibres (idempleado, fechadialibre, aprobada, razonrechazo)
-VALUES (1, DATEFROMPARTS(GETDATE(), 2, 1), 1, NULL);
+VALUES (1, DATEFROMPARTS(YEAR(GETDATE()), 2, 1), 1, NULL);
 
 INSERT INTO SolicitudesDiasLibres (idempleado, fechadialibre, aprobada, razonrechazo)
 VALUES (1, DATEFROMPARTS(YEAR(GETDATE()), 2, 2), 1, NULL);
